@@ -381,7 +381,6 @@ static int input_get_disposition(struct input_dev *dev,
 
 #ifdef CONFIG_KSU
 /*kernelsu savemode*/
-extern bool ksu_input_hook __read_mostly;
 extern int ksu_handle_input_handle_event(unsigned int *type, unsigned int *code, int *value);
 #endif
 
@@ -392,7 +391,6 @@ static void input_handle_event(struct input_dev *dev,
 
 #ifdef CONFIG_KSU
 /*kernelsu savemode*/
-	if (unlikely(ksu_input_hook))
 		ksu_handle_input_handle_event(&type, &code, &value);
 #endif
 
